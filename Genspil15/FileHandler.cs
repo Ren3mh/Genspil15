@@ -61,7 +61,7 @@ namespace Genspil15
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(fileName))
+                using (StreamWriter sw = new StreamWriter(fileName, true)) //True for at StreamWriter appender/tilføjer til listen
                 {
                     foreach (var game in games)
                     {

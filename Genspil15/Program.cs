@@ -22,9 +22,9 @@ namespace Genspil15
 
             ////SorteringsAlgoritmer.BubbleSort(games); //Udkommenteret
 
-            //string fileName2 = "SavedGamesList.txt"; //Navn på den fil der skal gemmes af WriteGames to file
+            string fileName = "SavedGamesList.txt"; //Navn på den fil der skal gemmes af WriteGames to file
 
-            //Filehandler.WriteGamesToFile(games, fileName2);
+            Filehandler.WriteGamesToFile(games, fileName); //tager listen games og filnavnet fileName og skriver listen til filen
 
             Console.WriteLine("Tak for nu...");
             Console.ReadLine();
