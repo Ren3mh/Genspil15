@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Resources;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,8 +49,48 @@ namespace Genspil15
         {
             Game Name = new Game();
             Console.WriteLine("Du har valgt at tilføje et nyt spil...");
+
             Console.WriteLine("Hvad er navnet?");
-            Console.ReadLine();
+            GameName = Console.ReadLine();
+
+            Console.WriteLine("Hvad er versionen/edition? (Hvis ingen, tryk enter...)");
+            GameEdition = Console.ReadLine();
+
+            Console.WriteLine("Hvad er genren?");
+            Genre = Console.ReadLine();
+
+            Console.WriteLine("Hvad er det mindst mulige antalspillere?");
+            NumberOfPlayersMin = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Hvad er det størst mulige antalspillere?");
+            NumberOfPlayersMax = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Hvad er aldersgrænsen?");
+            AgeMin = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Hvad er prisen?");
+            Price = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Hvad er tilstanden på spillet? fra 1-4 (1: som ny, 2: god, 3: slidt, 4: skal reperares)");
+            Condition = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Er der mere end 1 spil som dette? hvis ja, hvor mange?");
+            QuantityOfGame = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Er den til reperation? y eller n");
+            string yayornay = Console.ReadLine();
+            
+            if (yayornay == "y")
+            {
+                Console.WriteLine("Du har sat spillet som værende til reperation...");
+                BeingRepaired = true;
+            }
+
+            Console.WriteLine("Du har oprettet følgende spil:");
+            Console.WriteLine(MakeTitle());
+
+
+
         }
 
         public string MakeTitle()

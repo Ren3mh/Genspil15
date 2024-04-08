@@ -10,6 +10,8 @@ namespace Genspil15
 
             List<Game> games = Filehandler.ReadGamesFromFile(fileName);
 
+
+
             string fileName2 = "SavedGamesList.txt";
             //SorteringsAlgoritmer.BubbleSort(games);
             Filehandler.WriteGamesToFile(games, fileName2);
