@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -22,6 +24,10 @@ namespace Genspil15
         public string[] Reserved { get; set; } = new string[0];
         public bool BeingRepaired { get; set; } = false;
 
+        public Game() 
+        { 
+            //Tom Constructor
+        }
 
         public Game(string gameName, string gameEdition, string genre, int numberOfPlayersMin, int numberOfPlayersMax, int ageMin, double price, int condition, int quantityOfGame, bool beingRepaired)
         {
@@ -35,6 +41,14 @@ namespace Genspil15
             Condition = condition;
             QuantityOfGame = quantityOfGame;
             BeingRepaired = beingRepaired;
+        }
+
+        public void CreateGame()
+        {
+            Game Name = new Game();
+            Console.WriteLine("Du har valgt at tilføje et nyt spil...");
+            Console.WriteLine("Hvad er navnet?");
+            Console.ReadLine();
         }
 
         public string MakeTitle()
