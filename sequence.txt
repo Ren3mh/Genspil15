@@ -1,0 +1,6 @@
+Sequence,Original,Strategi,2,12,99.99,1,1
+Sequence,Original,Strategi,2,12,0,4,2
+Sequence,Junior,Strategi,2,4,
+Sequence,Giant,Strategi,2,12,
+Sequence,Rejsespil,Strategi,2,12,
+Sequence,Rejsespil,Strategi,2,12,

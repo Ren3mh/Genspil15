@@ -1,0 +1,80 @@
+gameName, gameEdition, genre, numberOfPlayersMin, numberOfPlayersMax, price, condition, quantityOfGames
+
+Spiloversigt (uddrag)
+
+Sequence
+Original
+•	1 I god stand
+•	2 til rep
+Junior
+•	1 lidt skrammet
+Giant
+Rejsespil
+•	2 god stand
+
+Sequence,Original,Strategi,2,12,99.99,1,1
+Sequence,Original,Strategi,2,12,
+Sequence,Original,Strategi,2,12,
+Sequence,Junior,Strategi,2,4,
+Sequence,Giant,Strategi,2,12,
+Sequence,Rejsespil,Strategi,2,12,
+Sequence,Rejsespil,Strategi,2,12,
+
+Ticket to ride
+Berlin
+•	3 I gid stand
+•	1 lidt slidt
+•	1 til rep
+Europe – engelsk
+Europe – dansk
+•	2 i god stand
+First journey
+•	1 på venteliste (Mejse Johansen) 
+Europa 1912
+Ghost train
+•	Måske 1 på vej
+New York
+Japan & Italy
+•	1 i ok stand
+Nothern Lights
+
+7 wonders
+Dansk 2nd edition
+•	1 reserveret (Torstein)
+Architects – dansk
+•	2 ok stand
+•	1 ikke åbnet
+Architects – Medals
+•	1 skadet på hjørne ellers fin stand
+2nd edition Cities- engelsk 
+•	Til rep
+dansk Duel – agora 
+•	2 ok stand
+•	1 helt ny
+Duel – agora – engelsk
+•	1 kan måske reddes
+
+
+Alverdens
+•	1 på venteliste (Cille fra skobutikken)
+Helte
+•	1 til rep
+OMG
+•	1 helt ny
+Popkultur
+•	1 i god stand
+•	2 lettere ridset 
+Arkitektur
+•	2
+Helte
+•	1 god stand
+
+A la carte: dessert
+•	1 god stand
+
+Bad people
+•	1 på venteliste (Allan fra min opgang)
+
+
+
+
