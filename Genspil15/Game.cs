@@ -45,9 +45,9 @@ namespace Genspil15
             BeingRepaired = beingRepaired;
         }
 
-        public void CreateGame()
+        public string CreateGame()
         {
-            Game Name = new Game();
+            
             Console.WriteLine("Du har valgt at tilføje et nyt spil...");
 
             Console.WriteLine("Hvad er navnet?");
@@ -79,23 +79,29 @@ namespace Genspil15
 
             Console.WriteLine("Er den til reperation? y eller n");
             string yayornay = Console.ReadLine();
-            
-            if (yayornay == "y")
-            {
-                Console.WriteLine("Du har sat spillet som værende til reperation...");
-                BeingRepaired = true;
-            }
+
+                if (yayornay == "y")
+                {
+                    Console.WriteLine("Du har sat spillet som værende til reperation...");
+                    BeingRepaired = true;
+                }
+                else 
+                {
+                    BeingRepaired = false;
+                }
+
 
             Console.WriteLine("Du har oprettet følgende spil:");
             Console.WriteLine(MakeTitle());
-
+            MakeTitle();
+            return MakeTitle();
 
 
         }
 
         public string MakeTitle()
         {
-            return GameName + ", " + GameEdition + ", " + Genre + ", " + NumberOfPlayersMin + ", " + NumberOfPlayersMax + ", " + AgeMin + ", " + Price + ", " + Condition + ", " + QuantityOfGame;
+            return GameName + ", " + GameEdition + ", " + Genre + ", " + NumberOfPlayersMin + ", " + NumberOfPlayersMax + ", " + AgeMin + ", " + Price + ", " + Condition + ", " + QuantityOfGame + ", " + BeingRepaired;
         }
     }
 }
