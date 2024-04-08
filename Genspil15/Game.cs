@@ -74,7 +74,7 @@ namespace Genspil15
             Console.WriteLine("Hvad er tilstanden på spillet? fra 1-4 (1: som ny, 2: god, 3: slidt, 4: skal reperares)");
             Condition = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Er der mere end 1 spil som dette? hvis ja, hvor mange?");
+            Console.WriteLine("Hvor mange spil er der som dette? 0, 1 eller flere? skriv et tal:");
             QuantityOfGame = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Er den til reperation? y eller n");
@@ -93,7 +93,6 @@ namespace Genspil15
 
             Console.WriteLine("Du har oprettet følgende spil:");
             Console.WriteLine(MakeTitle());
-            MakeTitle();
             return MakeTitle();
 
 
