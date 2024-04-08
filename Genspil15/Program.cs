@@ -1,4 +1,6 @@
-﻿namespace Genspil15
+﻿
+
+namespace Genspil15
 {
     internal class Program
     {
@@ -13,6 +15,7 @@
             Filehandler.WriteGamesToFile(games, fileName2);
 
             Console.WriteLine("Hello, World!");
+            Console.ReadLine();
         }
     }
 }

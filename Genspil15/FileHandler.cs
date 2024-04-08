@@ -38,12 +38,14 @@ namespace Genspil15
                     string genre = parts[2];
                     int numberOfPlayersMin = int.Parse(parts[3]);
                     int numberOfPlayersMax = int.Parse(parts[4]);
-                    double price = double.Parse(parts[5]);
-                    int condition = int.Parse(parts[6]);
-                    int quantityOfGames = int.Parse(parts[7]);
+                    int ageMin = int.Parse(parts[5]);
+                    double price = double.Parse(parts[6]);
+                    int condition = int.Parse(parts[7]);
+                    int quantityOfGames = int.Parse(parts[8]);
+                    bool beingRepaired = bool.Parse(parts[9]);
 
 
-                    games.Add(new Game(gameName, gameEdition, genre, numberOfPlayersMin, numberOfPlayersMax, price, condition, quantityOfGames));
+                    games.Add(new Game(gameName, gameEdition, genre, numberOfPlayersMin, numberOfPlayersMax, ageMin, price, condition, quantityOfGames, beingRepaired));
                     line = sr.ReadLine();
                 }
             }
@@ -52,6 +54,7 @@ namespace Genspil15
                 Console.WriteLine("Fejl ved læsning" + ex.Message);
             }
             return games;
+            
         }
 
         public static void WriteGamesToFile(List<Game> games, string fileName)
@@ -62,7 +65,7 @@ namespace Genspil15
                 {
                     foreach (var game in games)
                     {
-                        sw.WriteLine($"{game.GameName}, {game.GameEdition}, {game.Genre}, {game.NumberOfPlayersMin}, {game.NumberOfPlayersMax}, {game.Price}, {game.Condition}, {game.QuantityOfGame}");
+                        sw.WriteLine($"{game.GameName}, {game.GameEdition}, {game.Genre}, {game.NumberOfPlayersMin}, {game.NumberOfPlayersMax}, {game.AgeMin}, {game.Price}, {game.Condition}, {game.QuantityOfGame}, {game.BeingRepaired}");
                     }
                 }
             }
