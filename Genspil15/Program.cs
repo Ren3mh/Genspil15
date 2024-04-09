@@ -5,15 +5,20 @@ namespace Genspil15
     {
         static void Main(string[] args)
         {
-
-            Game game = new Game();
-            game.CreateGame(); //Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
             List<Game> games = new List<Game>(); //Laver en liste "games" af Game objecter
-            games.Add(game); //Tilføjer det nyoprettede game til games listen
+            Game game = new Game();
 
-
-
-
+            var cont = "y";
+            while (cont == "y")
+            {
+                game.CreateGame(); //Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
+                games.Add(game); //Tilføjer det nyoprettede game til games listen
+                Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
+                cont = Console.ReadLine();
+            }
+                
+           
+            
             //string fileName = "sequence.txt"; //Navn på test fil til at indlæse fra listen
 
             //List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Læser testfilen og laver et liste object
