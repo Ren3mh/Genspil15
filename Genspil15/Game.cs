@@ -11,6 +11,10 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Genspil15
 {
+    enum GenreOfGame
+    {
+    Strategi, Chance, Rollespil, Skak,
+    }
     public class Game
     {
         public string GameName { get; set; } = "ukendt";
