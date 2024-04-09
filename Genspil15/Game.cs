@@ -51,11 +51,7 @@ namespace Genspil15
 
         public string CreateGame()
         {
-            var cont = "y";
-            while (cont == "y")
-            {
-
-                Console.WriteLine("Du har valgt at tilføje et nyt spil...");
+        Console.WriteLine("Du har valgt at tilføje et nyt spil...");
 
                 Console.WriteLine("Hvad er navnet?");
                 GameName = Console.ReadLine();
@@ -101,11 +97,7 @@ namespace Genspil15
                 Console.WriteLine("Du har oprettet følgende spil:");
                 Console.WriteLine(MakeTitle());
                 return MakeTitle();
-                Console.WriteLine("Vil du tilføje endnu et spil? y eller n efterfuglt af Enter...");
-                cont = Console.ReadLine();
-            }
-            
-
+                
         }
 
         public string MakeTitle()
