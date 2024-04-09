@@ -11,7 +11,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Genspil15
 {
-    enum GenreOfGame
+    enum GenreOfGame // Vi kan bruge enum Genre til at sikre at man ikke skriver fx: strategi og strategispil
     {
     Strategi, Chance, Rollespil, Skak,
     }
