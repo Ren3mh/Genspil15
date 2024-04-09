@@ -53,6 +53,8 @@ namespace Genspil15
             {
                 Console.WriteLine("Fejl ved læsning" + ex.Message);
             }
+            // Listen sorteres i asending rækkefølge med først GameName og herefter GameEdition
+            games.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition));
             return games;
             
         }
@@ -61,7 +63,7 @@ namespace Genspil15
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(fileName, true)) //True for at StreamWriter appender/tilføjer til listen
+                using (StreamWriter sw = new StreamWriter(fileName)) //True for at StreamWriter appender/tilføjer til listen
                 {
                     foreach (var game in games)
                     {

@@ -9,6 +9,7 @@ namespace Genspil15
 {
     internal class Waitlist
     {
+        /*
         public Queue 
         
         // Creating a Queue 
@@ -29,5 +30,6 @@ namespace Genspil15
   
         // Displaying the beginning element of Queue 
         Console.WriteLine("Beginning Item is: " + myQueue.Peek()); 
-    }
+        */
+     }
 }
