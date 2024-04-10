@@ -22,10 +22,22 @@ namespace Genspil15
 		{
 			Console.WriteLine("Hvilket spil navn vil du søge efter?");
 			string Søg = Console.ReadLine();
-
-			var SøgningNavn = games.Where(Game => Game.GameName == Søg).ToList();
+			int a = 0;
+			List<Game> SøgningNavn = new List<Game>();
+			// var SøgningNavn = games.Where(Game => Game.GameName == Søg).ToList();
 			// IEnumerable<Game> SøgningNavn = games.FindAll(s => Søg == GameName);
-
+			while (a == 0)
+			{
+				SøgningNavn = games.Where(Game => Game.GameName == Søg).ToList();
+				a = SøgningNavn.Count;
+				if (a == 0)
+				{
+					Console.WriteLine("Ingen spil er fundet med det navn, prøv igen");
+					Søg = Console.ReadLine();
+				}
+				else
+					return SøgningNavn;
+			}
 			return SøgningNavn;
 			//SearchResult sr = new SearchResult();
 			//foreach (Game g in games)
