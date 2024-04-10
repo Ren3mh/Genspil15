@@ -13,8 +13,9 @@ namespace Genspil15
 
 
 
-            string fileName = "sequence.txt"; //Navn på test fil til at indlæse fra listen
-            List<Game> games = new List<Game>(); //Laver en liste "games" af Game objecter
+            string fileName = "SavedGamesList.txt"; //Navn på test fil til at indlæse fra listen
+            List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Læser testfilen og laver et liste object
+            
 
            
 
