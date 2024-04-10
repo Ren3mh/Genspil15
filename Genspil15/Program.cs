@@ -30,7 +30,7 @@ namespace Genspil15
                 cont = Console.ReadLine();
             }
 			// Listen sorteres i asending rækkefølge med først GameName og herefter GameEdition
-			games.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition));
+			games.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
 
 
 
