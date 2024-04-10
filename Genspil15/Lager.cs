@@ -20,7 +20,7 @@ namespace Genspil15
 
 		public static List<Game> Search(List<Game> games)
 		{
-			Console.WriteLine("Hvilket spil navn vil du søge efter?");
+			Console.WriteLine("Hvilket spil navn vil du søge efter Troels?");
 			string Søg = Console.ReadLine();
 
 			var SøgningNavn = games.Where(Game => Game.GameName == Søg).ToList();
