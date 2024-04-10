@@ -5,8 +5,6 @@ namespace Genspil15
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
-
             //Game game = new Game();
             //game.CreateGame(); //Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
             //List<Game> games = new List<Game>(); //Laver en liste "games" af Game objecter
@@ -16,17 +14,13 @@ namespace Genspil15
 
 
             string fileName = "sequence.txt"; //Navn på test fil til at indlæse fra listen
-=======
             List<Game> games = new List<Game>(); //Laver en liste "games" af Game objecter
 
-            string gameObj;
-            int gameObjNum = 0;
+           
+
             var cont = "y";
             while (cont == "y")
             {
-                gameObjNum++;
-                gameObj = "game" + gameObjNum;
-
                 Game game = new Game();
                 game.CreateGame(); //Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
                 games.Add(game); //Tilføjer det nyoprettede game til games listen
@@ -37,9 +31,8 @@ namespace Genspil15
            
             
             //string fileName = "sequence.txt"; //Navn på test fil til at indlæse fra listen
->>>>>>> 2e815175b9b19fd1596a59a043d3e0cff20afe87
 
-            List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Læser testfilen og laver et liste object
+            //List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Læser testfilen og laver et liste object
 			//Game game = new Game();
 			//game.CreateGame();
 			//games.Add(game);
