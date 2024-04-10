@@ -15,8 +15,9 @@ namespace Genspil15
 
             string fileName = "SavedGamesList.txt"; //Navn på test fil til at indlæse fra listen
             List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Læser testfilen og laver et liste object
-            
 
+
+            Lager.Search(games);
            
 
             var cont = "y";
