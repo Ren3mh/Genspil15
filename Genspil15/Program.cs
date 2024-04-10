@@ -6,11 +6,16 @@ namespace Genspil15
         static void Main(string[] args)
         {
             List<Game> games = new List<Game>(); //Laver en liste "games" af Game objecter
-            Game game = new Game();
 
+            string gameObj;
+            int gameObjNum = 0;
             var cont = "y";
             while (cont == "y")
             {
+                gameObjNum++;
+                gameObj = "game" + gameObjNum;
+
+                Game game = new Game();
                 game.CreateGame(); //Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
                 games.Add(game); //Tilføjer det nyoprettede game til games listen
                 Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
