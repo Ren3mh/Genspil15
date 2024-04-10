@@ -27,17 +27,20 @@ namespace Genspil15
                 Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
                 cont = Console.ReadLine();
             }
-                
-           
-            
-            //string fileName = "sequence.txt"; //Navn på test fil til at indlæse fra listen
+			// Listen sorteres i asending rækkefølge med først GameName og herefter GameEdition
+			games.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition));
 
-            //List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Læser testfilen og laver et liste object
+
+
+			//string fileName = "sequence.txt"; //Navn på test fil til at indlæse fra listen
+
+			//List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Læser testfilen og laver et liste object
 			//Game game = new Game();
 			//game.CreateGame();
 			//games.Add(game);
 
 			////SorteringsAlgoritmer.BubbleSort(games); //Udkommenteret
+
 
 			string fileName2 = "SavedGamesList.txt"; //Navn på den fil der skal gemmes af WriteGames to file
 
