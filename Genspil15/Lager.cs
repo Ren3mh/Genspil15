@@ -17,12 +17,20 @@ namespace Genspil15
 	}
 	public class Lager
 	{
-
-		public static List<Game> Search(List<Game> games)
+		public static void MaybeSearch(string maybeSearch)
+		{
+			Console.WriteLine("Vil du søge efter et spil ? y/n");
+			string svar = Console.ReadLine();
+			if (svar == y)
+				Console.WriteLine("Hvilket filter vil du søge efter? \n GameNavn \n GameEdition \n Genre"); 
+			public string filter = Console.ReadLine();
+		}
+		public static List<Game> Search(List<Game> games, string filter)
 		{
 			Console.WriteLine("Hvilket spil navn vil du søge efter?");
 			string Søg = Console.ReadLine();
 			int a = 0;
+
 			List<Game> SøgningNavn = new List<Game>();
 			// var SøgningNavn = games.Where(Game => Game.GameName == Søg).ToList();
 			// IEnumerable<Game> SøgningNavn = games.FindAll(s => Søg == GameName);

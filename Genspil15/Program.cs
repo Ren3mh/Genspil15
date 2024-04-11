@@ -16,11 +16,12 @@ namespace Genspil15
             string fileName = "SavedGamesList.txt"; //Navn på test fil til at indlæse fra listen
             List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Læser testfilen og laver et liste object
 
+            
+            List<Game> SøgningNavn = Lager.Search(games);
+			SøgningNavn.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
+            
 
-            Lager.Search(games);
-           
-
-            var cont = "y";
+			var cont = "y";
             while (cont == "y")
             {
                 Game game = new Game();
