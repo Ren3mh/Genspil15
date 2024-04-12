@@ -45,7 +45,7 @@ namespace Genspil15
                     bool beingRepaired = bool.Parse(parts[9]);
 
 
-                    games.Add(new Game(gameName, gameEdition, genre, numberOfPlayersMin, numberOfPlayersMax, ageMin, price, condition, quantityOfGames, beingRepaired));
+                    games.Add(new Game(gameName, gameEdition, genre, numberOfPlayersMin, numberOfPlayersMax, ageMin, price, (Condition)condition, quantityOfGames, beingRepaired));
                     line = sr.ReadLine();
                 }
             }

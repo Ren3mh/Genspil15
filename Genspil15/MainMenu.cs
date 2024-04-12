@@ -8,10 +8,11 @@ namespace Genspil15
 {
     class MainMenu
     {
-        static string fileName = "SavedGamesList.txt"; //Navn på test fil til at indlæse fra listen
+        static string fileName = "Sequence.txt"; //Navn på test fil til at indlæse fra listen
         List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Læser testfilen og laver et liste object
+		List<Game> SearchList = new List<Game>();
 
-        Game game = new Game();
+		Game game = new Game();
 
 
         public bool Menu()
@@ -42,9 +43,18 @@ namespace Genspil15
                     var cont2 = "y";
                     while (cont2 == "y")
                     {
-                        Lager.Search(games);
+                        List<Game> SearchList = Lager.Search(games);
+						SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
+
+						Console.WriteLine("Liste over søgning");
+                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                        Console.WriteLine("Navn,\t\t\tUdgave,\t\tGenre,\t\tMin,\tMaks,\tPrice,\tTilstand,\tAntal på lager,\tTil rep.\n");
                         
-                        Console.WriteLine("Vil du søge efter endnu et spil? y eller n fulgt af Enter...");
+						foreach (Game game in SearchList)
+                        {
+                            Console.WriteLine($"{game.GameName}, \t{game.GameEdition}, \t{game.Genre}, \t{game.NumberOfPlayersMin}, \t{game.NumberOfPlayersMax}, \t{game.Price}, \t{game.Condition}, \t{game.QuantityOfGame}, \t\t{game.BeingRepaired}");
+                        }
+                        Console.WriteLine("\nVil du søge efter endnu et spil? y eller n fulgt af Enter...");
                         cont2 = Console.ReadLine();
                     }
                     return true;

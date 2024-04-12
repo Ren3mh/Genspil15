@@ -5,8 +5,8 @@ namespace Genspil15
     {
         static void Main(string[] args)
         {
-            List<Game> games = new List<Game>(); //Laver en liste "games" af Game objecter
-            MainMenu menu = new MainMenu();
+			List<Game> games = new List<Game>(); //Laver en liste "games" af Game objecter
+			MainMenu menu = new MainMenu();
 
             bool showMenu = true;
             while (showMenu)
@@ -22,15 +22,15 @@ namespace Genspil15
 
 
 
-            string fileName = "SavedGamesList.txt"; //Navn på test fil til at indlæse fra listen
-            List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Læser testfilen og laver et liste object
+            // string fileName = "SavedGamesList.txt"; //Navn på test fil til at indlæse fra listen
+            // List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Læser testfilen og laver et liste object
 
 
-            Lager.Search(games);
+            // Lager.Search(games);
            
 
 			// Listen sorteres i asending rækkefølge med først GameName og herefter GameEdition
-			games.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
+			// games.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
 
 
 
