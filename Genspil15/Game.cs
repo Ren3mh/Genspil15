@@ -24,12 +24,26 @@ public enum Condition
 		KanMåskeReddes = 5
 	};
 
+    public enum Genre
+    {
+		Ukendt = 0,
+        Strategy = 1,
+		Party = 2,
+		DeckBuilding = 3,
+		Cooperative = 4,
+		TilePlacement = 5,
+		Deduction = 6,
+		WorkerPlacement = 7,
+		Adventure = 8,
+		Abstract = 9,
+		WordPuzzle = 10
+	}
     
     public class Game
     {
         public string GameName { get; set; } = "ukendt";
         public string GameEdition { get; set; } = "ukendt";
-        public string Genre { get; set; } = "ukendt";
+        public Genre Genre { get; set; } = Genre.Ukendt;
         public int NumberOfPlayersMin { get; set; } = 0;
         public int NumberOfPlayersMax { get; set; } = 0;
         public int AgeMin { get; set; } = 0;
@@ -45,11 +59,11 @@ public enum Condition
             //Tom Constructor
         }
 
-        public Game(string gameName, string gameEdition, string genre, int numberOfPlayersMin, int numberOfPlayersMax, int ageMin, double price, Condition condition, int quantityOfGame, bool beingRepaired)
+        public Game(string gameName, string gameEdition, Genre genre, int numberOfPlayersMin, int numberOfPlayersMax, int ageMin, double price, Condition condition, int quantityOfGame, bool beingRepaired)
         {
             GameName = gameName;
             GameEdition = gameEdition;
-            Genre = genre;
+            Genre = (Genre)genre;
             NumberOfPlayersMin = numberOfPlayersMin;
             NumberOfPlayersMax = numberOfPlayersMax;
             AgeMin = ageMin;
@@ -69,7 +83,9 @@ public enum Condition
                 GameEdition = Console.ReadLine();
 
                 Console.WriteLine("Hvad er genren?");
-                Genre = Console.ReadLine();
+			    Console.WriteLine("0. Ukendt\n1. Strategi\n2.Party\n3.Deckbuilding\n4. Cooperative\n5. TilePlacement\n6. Deduction\n7. WorkerPlacement\n8. Adventure\n9. Abstract\n10. WordPuzzle");
+
+			    int Genre = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Hvad er det mindst mulige antalspillere?");
                 NumberOfPlayersMin = int.Parse(Console.ReadLine());

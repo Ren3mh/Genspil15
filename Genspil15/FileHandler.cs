@@ -35,7 +35,7 @@ namespace Genspil15
                     string[] parts = line.Split(',');
                     string gameName = parts[0];
                     string gameEdition = parts[1];
-                    string genre = parts[2];
+                    int genre = int.Parse(parts[2]);
                     int numberOfPlayersMin = int.Parse(parts[3]);
                     int numberOfPlayersMax = int.Parse(parts[4]);
                     int ageMin = int.Parse(parts[5]);
@@ -45,7 +45,7 @@ namespace Genspil15
                     bool beingRepaired = bool.Parse(parts[9]);
 
 
-                    games.Add(new Game(gameName, gameEdition, genre, numberOfPlayersMin, numberOfPlayersMax, ageMin, price, (Condition)condition, quantityOfGames, beingRepaired));
+                    games.Add(new Game(gameName, gameEdition, (Genre)genre, numberOfPlayersMin, numberOfPlayersMax, ageMin, price, (Condition)condition, quantityOfGames, beingRepaired));
                     line = sr.ReadLine();
                 }
             }
