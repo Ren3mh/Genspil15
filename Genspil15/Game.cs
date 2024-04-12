@@ -11,10 +11,20 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Genspil15
 {
-    enum GenreOfGame // Vi kan bruge enum Genre til at sikre at man ikke skriver fx: strategi og strategispil
-    {
-    Strategi, Chance, Rollespil, Skak,
-    }
+    // enum GenreOfGame // Vi kan bruge enum Genre til at sikre at man ikke skriver fx: strategi og strategispil
+    //{
+    //Strategi, Chance, Rollespil, Skak,
+    //}
+public enum Condition
+	{
+		HeltNy = 1,
+		GodStand = 2,
+		LettereRidset = 3,
+		TilRep = 4,
+		KanMåskeReddes = 5
+	};
+
+    
     public class Game
     {
         public string GameName { get; set; } = "ukendt";
@@ -24,7 +34,7 @@ namespace Genspil15
         public int NumberOfPlayersMax { get; set; } = 0;
         public int AgeMin { get; set; } = 0;
         public double Price { get; set; } = 0;
-        public int Condition { get; set; } = 0;
+        public Condition Condition { get; set; } = Condition.HeltNy;
         public int QuantityOfGame { get; set; } = 0;
         public string[] Waitlist { get; set; } = new string[0];
         public string[] Reserved { get; set; } = new string[0];
@@ -35,7 +45,7 @@ namespace Genspil15
             //Tom Constructor
         }
 
-        public Game(string gameName, string gameEdition, string genre, int numberOfPlayersMin, int numberOfPlayersMax, int ageMin, double price, int condition, int quantityOfGame, bool beingRepaired)
+        public Game(string gameName, string gameEdition, string genre, int numberOfPlayersMin, int numberOfPlayersMax, int ageMin, double price, Condition condition, int quantityOfGame, bool beingRepaired)
         {
             GameName = gameName;
             GameEdition = gameEdition;
@@ -44,7 +54,7 @@ namespace Genspil15
             NumberOfPlayersMax = numberOfPlayersMax;
             AgeMin = ageMin;
             Price = price;
-            Condition = condition;
+            Condition = (Condition)condition;
             QuantityOfGame = quantityOfGame;
             BeingRepaired = beingRepaired;
         }
@@ -73,8 +83,8 @@ namespace Genspil15
                 Console.WriteLine("Hvad er prisen?");
                 Price = double.Parse(Console.ReadLine());
 
-                Console.WriteLine("Hvad er tilstanden på spillet? fra 1-4 (1: som ny, 2: god, 3: slidt, 4: skal reperares)");
-                Condition = int.Parse(Console.ReadLine());
+                Console.WriteLine("Hvad er tilstanden på spillet?\n1. HeltNy / IkkeÅbnet\n2. OkStand / GodStand\n3. Lettere ridset / Skadet på hjørnet ellers fin stand / Lidt slidt / Lidt skrammet\n4. Til rep\n5. Kan måske reddes");
+                int Condition = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Hvor mange spil er der som dette? 0, 1 eller flere? skriv et tal:");
                 QuantityOfGame = int.Parse(Console.ReadLine());

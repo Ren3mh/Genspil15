@@ -32,14 +32,15 @@ namespace Genspil15
 					return SearchGenre(games, searchGenre);
 
 				case "3":
-					Console.WriteLine($"Hvilket navn søger du efter?");
-					string svar = Console.ReadLine();
-					return SearchName(games, svar);
-
-				case "4":
 					Console.WriteLine($"Hvilket prisleje skal spillet ligge under?");
 					double searchPrice = double.Parse(Console.ReadLine());
 					return SearchPrice(games, searchPrice);
+
+				case "4":
+					Console.WriteLine($"Hvilken tilstand skal spillet som minimum have?");
+					Console.WriteLine("1. HeltNy / IkkeÅbnet\n2. OkStand / GodStand\n3. Lettere ridset / Skadet på hjørnet ellers fin stand / Lidt slidt / Lidt skrammet\n4. Til rep\n5. Kan måske reddes");
+					int searchCondition = int.Parse(Console.ReadLine());
+					return SearchPrice(games, searchCondition);
 
 				case "5":
 					Console.WriteLine($"Hvor mange skal minimum kunne spille?");
@@ -56,8 +57,7 @@ namespace Genspil15
 		}	
 		public static List<Game> SearchName(List<Game> games, string searchName)
 		{
-			Console.WriteLine("Hvilket spil navn vil du søge efter?");
-			string SearchInput = Console.ReadLine();
+			string SearchInput = searchName;
 			int a = 0;
 
 			List<Game> SearchList = new List<Game>();
@@ -80,8 +80,7 @@ namespace Genspil15
 		}
 		public static List<Game> SearchGenre(List<Game> games, string searchGenre)
 		{
-			Console.WriteLine("Hvilken spil genre vil du søge efter?");
-			string SearchInput = Console.ReadLine();
+			string SearchInput = searchGenre;
 			int a = 0;
 
 			List<Game> SearchList = new List<Game>();
@@ -102,8 +101,7 @@ namespace Genspil15
 		}
 		public static List<Game> SearchPrice(List<Game> games, double searchPrice)
 		{
-			Console.WriteLine("Hvilket prisleje har vi med at gøre idag?");
-			double SearchInput = double.Parse(Console.ReadLine());
+			double SearchInput = searchPrice;
 			int a = 0;
 
 			List<Game> SearchList = new List<Game>();
@@ -124,14 +122,13 @@ namespace Genspil15
 		}
 		public static List<Game> SearchCondition(List<Game> games, int searchCondition)
 		{
-			Console.WriteLine("Hvilken stand må spillet som minimum være i?");
-			int SearchInput = int.Parse(Console.ReadLine());
+			int SearchInput = searchCondition;
 			int a = 0;
 
 			List<Game> SearchList = new List<Game>();
 			while (a == 0)
 			{
-				SearchList = games.Where(Game => Game.Condition == SearchInput).ToList();
+				SearchList = games.Where(Game => (int)Game.Condition <= SearchInput).ToList();
 				SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
 				a = SearchList.Count;
 				if (a == 0)
@@ -146,8 +143,7 @@ namespace Genspil15
 		}
 		public static List<Game> SearchPlayerMin(List<Game> games, int searchPlayerMin)
 		{
-			Console.WriteLine("Hvor mange spillere skal der minimum kunne spille?");
-			int SearchInput = int.Parse(Console.ReadLine());
+			int SearchInput = searchPlayerMin;
 			int a = 0;
 
 			List<Game> SearchList = new List<Game>();
@@ -168,8 +164,7 @@ namespace Genspil15
 		}
 		public static List<Game> SearchPlayerMax(List<Game> games, int searchPlayerMax)
 		{
-			Console.WriteLine("Hvor mange spillere skal der maksimum kunne spille?");
-			int SearchInput = int.Parse(Console.ReadLine());
+			int SearchInput = searchPlayerMax;
 			int a = 0;
 
 			List<Game> SearchList = new List<Game>();

@@ -29,15 +29,6 @@ namespace Genspil15
             Lager.Search(games);
            
 
-            var cont = "y";
-            while (cont == "y")
-            {
-                Game game = new Game();
-                game.CreateGame(); //Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
-                games.Add(game); //Tilføjer det nyoprettede game til games listen
-                Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
-                cont = Console.ReadLine();
-            }
 			// Listen sorteres i asending rækkefølge med først GameName og herefter GameEdition
 			games.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
 
