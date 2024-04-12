@@ -1,4 +1,4 @@
-gameName, gameEdition, genre, numberOfPlayersMin, numberOfPlayersMax, price, condition, quantityOfGames
+gameName, gameEdition, genre, numberOfPlayersMin, numberOfPlayersMax, price, condition, quantityOfGames,
 
 Spiloversigt (uddrag)
 
@@ -20,7 +20,7 @@ Sequence,Giant,Strategi,2,12,
 Sequence,Rejsespil,Strategi,2,12,
 Sequence,Rejsespil,Strategi,2,12,
 
-Ticket to ride
+Ticket to ride (Strategi)
 Berlin
 •	3 I gid stand
 •	1 lidt slidt
@@ -38,7 +38,7 @@ Japan & Italy
 •	1 i ok stand
 Nothern Lights
 
-7 wonders
+7 wonders (Strategi)
 Dansk 2nd edition
 •	1 reserveret (Torstein)
 Architects – dansk
@@ -69,10 +69,10 @@ Arkitektur
 Helte
 •	1 god stand
 
-A la carte: dessert
+A la carte: dessert (Strategi)
 •	1 god stand
 
-Bad people
+Bad people (Party)
 •	1 på venteliste (Allan fra min opgang)
 
 
