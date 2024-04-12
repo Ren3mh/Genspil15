@@ -28,7 +28,8 @@ namespace Genspil15
 
 				case "2":
 					Console.WriteLine($"Hvilken genre søger du efter?");
-					string searchGenre = Console.ReadLine();
+					Console.WriteLine("0. Ukendt\n1. Strategi\n2.Party\n3.Deckbuilding\n4. Cooperative\n5. TilePlacement\n6. Deduction\n7. WorkerPlacement\n8. Adventure\n9. Abstract\n10. WordPuzzle");
+					int searchGenre = int.Parse(Console.ReadLine());
 					return SearchGenre(games, searchGenre);
 
 				case "3":
@@ -78,21 +79,21 @@ namespace Genspil15
 			}
 			return SearchList;
 		}
-		public static List<Game> SearchGenre(List<Game> games, string searchGenre)
+		public static List<Game> SearchGenre(List<Game> games, int searchGenre)
 		{
-			string SearchInput = searchGenre;
+			int SearchInput = searchGenre;
 			int a = 0;
 
 			List<Game> SearchList = new List<Game>();
 			while (a == 0)
 			{
-				SearchList = games.Where(Game => Game.Genre == SearchInput).ToList();
+				SearchList = games.Where(Game => (int)Game.Genre == SearchInput).ToList();
 				SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
 				a = SearchList.Count;
 				if (a == 0)
 				{
 					Console.WriteLine("Ingen spil er fundet med den genre, prøv igen");
-					SearchInput = Console.ReadLine();
+					SearchInput = int.Parse(Console.ReadLine());
 				}
 				else
 					return SearchList;
