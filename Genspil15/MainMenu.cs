@@ -50,7 +50,7 @@ namespace Genspil15
                     Games.Add(Game); //Tilføjer det nyoprettede game til games listen
                     Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
                     cont = Console.ReadLine();
-                        // for at undgå at miste data, så gemmer vi tilføjelserne efter 
+                        // for at undgå at miste data, så gemmer vi tilføjelserne efter hver.
                         Filehandler.WriteGamesToFile(Games, FileName);
                     }
                         return true;
