@@ -13,7 +13,7 @@ namespace Genspil15
         public string FileName { get; set; } = "LagerListe.txt"; //Navn på test fil til at indlæse fra listen
         //public List<Game> Games { get; set; } = games;
 
-        public List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
+        //public List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
 
         public List<Game> SearchList { get; set; } = new List<Game>();
         public Game Game { get; set; } = new Game();
@@ -22,7 +22,7 @@ namespace Genspil15
         public MainMenu(string fileName, List<Game> games) 
         {
             FileName = fileName;
-            Games = games;
+            //Games = games;
   
         }
 
@@ -44,8 +44,8 @@ namespace Genspil15
                     var cont = "y";
                     while (cont == "y")
                     {
-                    
-                    
+
+                    List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
                     Game.CreateGame();//Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
                     Games.Add(Game); //Tilføjer det nyoprettede game til games listen
                     Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
@@ -59,6 +59,7 @@ namespace Genspil15
                     var cont2 = "y";
                     while (cont2 == "y")
                     {
+                        List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
                         List<Game> SearchList = Lager.Search(Games);
 						SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
 
