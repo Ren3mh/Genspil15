@@ -65,7 +65,7 @@ namespace Genspil15
                 {
                     foreach (var game in games)
                     {
-                        sw.WriteLine($"{game.GameName}, {game.GameEdition}, {game.Genre.ToString()}, {game.NumberOfPlayersMin}, {game.NumberOfPlayersMax}, {game.AgeMin}, {game.Price}, {game.Condition}, {game.QuantityOfGame}, {game.BeingRepaired}");
+                        sw.WriteLine($"{game.GameName},{game.GameEdition},{game.Genre.ToString()},{game.NumberOfPlayersMin},{game.NumberOfPlayersMax},{game.AgeMin},{game.Price},{game.Condition},{game.QuantityOfGame},{game.BeingRepaired}");
                     }
                 }
             }

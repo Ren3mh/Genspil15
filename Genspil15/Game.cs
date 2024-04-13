@@ -131,7 +131,7 @@ public enum Condition
 
         public string MakeTitle()
         {
-            return GameName + ", " + GameEdition + ", " + Genre + ", " + NumberOfPlayersMin + ", " + NumberOfPlayersMax + ", " + AgeMin + ", " + Price + ", " + Condition + ", " + QuantityOfGame + ", " + BeingRepaired;
+            return GameName + "," + GameEdition + "," + Genre + "," + NumberOfPlayersMin + "," + NumberOfPlayersMax + "," + AgeMin + "," + Price + "," + Condition + "," + QuantityOfGame + "," + BeingRepaired;
         }
     }
 }
