@@ -52,6 +52,7 @@ namespace Genspil15
                     cont = Console.ReadLine();
                         // for at undgå at miste data, så gemmer vi tilføjelserne efter hver.
                         Filehandler.WriteGamesToFile(Games, FileName);
+                        Console.Clear();
                     }
                         return true;
                 case "2":

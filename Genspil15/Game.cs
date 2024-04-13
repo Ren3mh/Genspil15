@@ -26,17 +26,17 @@ public enum Condition
 
     public enum Genre
     {
-		Ukendt = 0,
-        Strategy = 1,
-		Party = 2,
-		DeckBuilding = 3,
-		Cooperative = 4,
-		TilePlacement = 5,
-		Deduction = 6,
-		WorkerPlacement = 7,
-		Adventure = 8,
-		Abstract = 9,
-		WordPuzzle = 10
+		Ukendt,
+        Strategi,
+		Party,
+		DeckBuilding,
+		Cooperative,
+		TilePlacement,
+		Deduction,
+		WorkerPlacement,
+		Adventure,
+		Abstract,
+		WordPuzzle
 	}
     
     public class Game
@@ -63,12 +63,12 @@ public enum Condition
         {
             GameName = gameName;
             GameEdition = gameEdition;
-            Genre = (Genre)genre;
+            Genre = genre;
             NumberOfPlayersMin = numberOfPlayersMin;
             NumberOfPlayersMax = numberOfPlayersMax;
             AgeMin = ageMin;
             Price = price;
-            Condition = (Condition)condition;
+            Condition = condition;
             QuantityOfGame = quantityOfGame;
             BeingRepaired = beingRepaired;
         }
@@ -85,7 +85,7 @@ public enum Condition
                 Console.WriteLine("Hvad er genren?");
 			    Console.WriteLine("0. Ukendt\n1. Strategi\n2.Party\n3.Deckbuilding\n4. Cooperative\n5. TilePlacement\n6. Deduction\n7. WorkerPlacement\n8. Adventure\n9. Abstract\n10. WordPuzzle");
 
-			    int Genre = int.Parse(Console.ReadLine());
+                Genre = (Genre)int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Hvad er det mindst mulige antalspillere?");
                 NumberOfPlayersMin = int.Parse(Console.ReadLine());
@@ -100,7 +100,7 @@ public enum Condition
                 Price = double.Parse(Console.ReadLine());
 
                 Console.WriteLine("Hvad er tilstanden på spillet?\n1. HeltNy / IkkeÅbnet\n2. OkStand / GodStand\n3. Lettere ridset / Skadet på hjørnet ellers fin stand / Lidt slidt / Lidt skrammet\n4. Til rep\n5. Kan måske reddes");
-                int Condition = int.Parse(Console.ReadLine());
+                Condition = (Condition)int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Hvor mange spil er der som dette? 0, 1 eller flere? skriv et tal:");
                 QuantityOfGame = int.Parse(Console.ReadLine());
@@ -131,7 +131,7 @@ public enum Condition
 
         public string MakeTitle()
         {
-            return GameName + ", " + GameEdition + ", " + (int)Genre + ", " + NumberOfPlayersMin + ", " + NumberOfPlayersMax + ", " + AgeMin + ", " + Price + ", " + Condition + ", " + QuantityOfGame + ", " + BeingRepaired;
+            return GameName + ", " + GameEdition + ", " + Genre + ", " + NumberOfPlayersMin + ", " + NumberOfPlayersMax + ", " + AgeMin + ", " + Price + ", " + Condition + ", " + QuantityOfGame + ", " + BeingRepaired;
         }
     }
 }
