@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,11 +9,21 @@ namespace Genspil15
 {
     class MainMenu
     {
-        static string fileName = "Sequence.txt"; //Navn på test fil til at indlæse fra listen
-        List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Læser testfilen og laver et liste object
-		List<Game> SearchList = new List<Game>();
 
-		Game game = new Game();
+        public string FileName { get; set; } = "LagerListe.txt"; //Navn på test fil til at indlæse fra listen
+        public List<Game> Games { get; set; } = new List<Game>();
+        
+        public List<Game> SearchList { get; set; } = new List<Game>();
+        public Game Game { get; set; } = new Game();
+        public string fileName2 { get; set; } = "LagerListe2.txt"; //Navn på den fil der skal gemmes af WriteGames to file
+
+        public MainMenu(string fileName, List<Game> games) 
+        {
+            FileName = fileName;
+            Games = games;
+  
+        }
+
 
 
         public bool Menu()
@@ -33,17 +44,18 @@ namespace Genspil15
                     {
                     
                     
-                    game.CreateGame();//Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
-                    games.Add(game); //Tilføjer det nyoprettede game til games listen
+                    Game.CreateGame();//Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
+                    Games.Add(Game); //Tilføjer det nyoprettede game til games listen
                     Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
                     cont = Console.ReadLine();
+                    Filehandler.WriteGamesToFile(Games, FileName);
                     }
                         return true;
                 case "2":
                     var cont2 = "y";
                     while (cont2 == "y")
                     {
-                        List<Game> SearchList = Lager.Search(games);
+                        List<Game> SearchList = Lager.Search(Games);
 						SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
 
 						Console.WriteLine("Liste over søgning");
@@ -70,6 +82,10 @@ namespace Genspil15
                 default:
                     return true;
             }
+            
+
+            
         }
+        
     }
 }

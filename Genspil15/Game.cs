@@ -43,12 +43,12 @@ public enum Condition
     {
         public string GameName { get; set; } = "ukendt";
         public string GameEdition { get; set; } = "ukendt";
-        public Genre Genre { get; set; } = Genre.Ukendt;
+        public Genre Genre { get; set; } = 0;
         public int NumberOfPlayersMin { get; set; } = 0;
         public int NumberOfPlayersMax { get; set; } = 0;
         public int AgeMin { get; set; } = 0;
         public double Price { get; set; } = 0;
-        public Condition Condition { get; set; } = Condition.HeltNy;
+        public Condition Condition { get; set; } = 0;
         public int QuantityOfGame { get; set; } = 0;
         public string[] Waitlist { get; set; } = new string[0];
         public string[] Reserved { get; set; } = new string[0];

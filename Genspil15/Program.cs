@@ -5,8 +5,10 @@ namespace Genspil15
     {
         static void Main(string[] args)
         {
-			List<Game> games = new List<Game>(); //Laver en liste "games" af Game objecter
-			MainMenu menu = new MainMenu();
+            string fileName = "LagerListe.txt";
+			List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Laver en liste "games" af Game objecter
+			
+            MainMenu menu = new MainMenu(fileName, games);
 
             bool showMenu = true;
             while (showMenu)
@@ -44,7 +46,7 @@ namespace Genspil15
 			////SorteringsAlgoritmer.BubbleSort(games); //Udkommenteret
 
 
-			string fileName2 = "SavedGamesList.txt"; //Navn på den fil der skal gemmes af WriteGames to file
+			string fileName2 = "LagerListe2.txt"; //Navn på den fil der skal gemmes af WriteGames to file
 
             Filehandler.WriteGamesToFile(games, fileName2); //tager listen games og filnavnet fileName2 og skriver listen til filen
 
