@@ -11,8 +11,10 @@ namespace Genspil15
     {
 
         public string FileName { get; set; } = "LagerListe.txt"; //Navn på test fil til at indlæse fra listen
-        public List<Game> Games { get; set; } = new List<Game>();
-        
+        //public List<Game> Games { get; set; } = games;
+
+        public List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
+
         public List<Game> SearchList { get; set; } = new List<Game>();
         public Game Game { get; set; } = new Game();
         public string fileName2 { get; set; } = "LagerListe2.txt"; //Navn på den fil der skal gemmes af WriteGames to file
@@ -48,7 +50,8 @@ namespace Genspil15
                     Games.Add(Game); //Tilføjer det nyoprettede game til games listen
                     Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
                     cont = Console.ReadLine();
-                    Filehandler.WriteGamesToFile(Games, FileName);
+                        // for at undgå at miste data, så gemmer vi tilføjelserne efter 
+                        Filehandler.WriteGamesToFile(Games, FileName);
                     }
                         return true;
                 case "2":
