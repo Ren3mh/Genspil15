@@ -40,14 +40,15 @@ namespace Genspil15
             Console.WriteLine("4) Exit");
             Console.Write("\r\nVælg en mulighed og tryk enter: ");
 
-            switch (Console.ReadLine())
+			List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
+
+			switch (Console.ReadLine())
             {
                 case "1":
                     var cont = "y";
                     while (cont == "y")
                     {
 
-                    List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
                     Game.CreateGame();//Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
                     Games.Add(Game); //Tilføjer det nyoprettede game til games listen
                     Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
@@ -62,7 +63,7 @@ namespace Genspil15
                     string cont2 = "y";
                     while (cont2 == "y")
                     {
-                        List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
+                        // List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
                         List<Game> SearchList = Lager.Search(Games);
                         SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
 
@@ -112,20 +113,20 @@ namespace Genspil15
                     var cont3 = "y";
                     while (cont3 == "y")
                     {
-                        List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
-                        //List<Game> SearchList = Lager.Search(Games);
-                        Games.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
-
-                        Console.WriteLine("Liste over Lager");
+						// List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
+						List<Game> StorageList = Lager.OnStorageItems(Games);
+                        DateTime currentTime= DateTime.Now;
+                        String FileNameStatus = ($"Lagerliste{currentTime.ToShortDateString()}.txt");
+						Console.WriteLine("Liste over varer som er på lager");
                         Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
                         Console.WriteLine("Navn,\t\t\tUdgave,\t\tGenre,\t\tMin,\tMaks,\tPrice,\tTilstand,\tAntal på lager,\tTil rep.\n");
 
-                        foreach (Game game in Games)
+                        foreach (Game game in StorageList)
                         {
                             Console.WriteLine($"{game.GameName}, \t{game.GameEdition}, \t{game.Genre}, \t{game.NumberOfPlayersMin}, \t{game.NumberOfPlayersMax}, \t{game.Price}, \t{game.Condition}, \t{game.QuantityOfGame}, \t\t{game.BeingRepaired}");
                         }
                         Console.WriteLine("\nVil du søge efter endnu et spil? y eller n fulgt af Enter...");
-                        cont3 = Console.ReadLine();
+                        cont2 = Console.ReadLine();
                     }
                     return true;
 
