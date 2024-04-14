@@ -21,9 +21,12 @@ namespace Genspil15
         public Game Game { get; set; } = new Game();
         public string fileName2 { get; set; } = "LagerListe2.txt"; //Navn på den fil der skal gemmes af WriteGames to file
 
-        public MainMenu(string fileName, List<Game> games) 
+        public string DirMappe { get; set; }
+
+        public MainMenu(string fileName, List<Game> games, string dirMappe) 
         {
             FileName = fileName;
+            DirMappe = dirMappe;
             //Games = games;
   
         }
@@ -40,9 +43,13 @@ namespace Genspil15
             Console.WriteLine("4) Exit");
             Console.Write("\r\nVælg en mulighed og tryk enter: ");
 
-			List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
+			List<Game> Games = Filehandler.ReadGamesFromFile(FileName);
+            
 
-			switch (Console.ReadLine())
+
+
+
+            switch (Console.ReadLine())
             {
                 case "1":
                     var cont = "y";
@@ -93,7 +100,13 @@ namespace Genspil15
 
                                 Console.WriteLine("Antallet af valgte spil er nu: {0}", Games[indexResultat].QuantityOfGame);
                                 Filehandler.WriteGamesToFile(Games, FileName);
-                                Console.ReadLine();
+                                Console.WriteLine("Gemmer listen på computeren og returnerer til menuen");
+                                Console.WriteLine("3");
+                                Thread.Sleep(1000); // 3000 milliseconds = 3 seconds
+                                Console.WriteLine("2");
+                                Thread.Sleep(1000); // 3000 milliseconds = 3 seconds
+                                Console.WriteLine("1");
+                                Thread.Sleep(1000); // 3000 milliseconds = 3 seconds
 
                                 //Games.FindIndex(SearchList[indexValgInt]);
                                 //1: sæt valgte game fra search list til en VAR
@@ -116,8 +129,9 @@ namespace Genspil15
 						// List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
 						List<Game> StorageList = Lager.OnStorageItems(Games);
                         DateTime currentTime= DateTime.Now;
-                        String FileNameStatus = ($"Lagerliste{currentTime.ToShortDateString()}.txt");
-						Console.WriteLine("Liste over varer som er på lager");
+                        String FileNameStatus = Path.Combine(DirMappe + $"\\Lagerliste{currentTime.ToShortDateString()}.txt");
+                        
+                        Console.WriteLine("Liste over varer som er på lager");
                         Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
                         Console.WriteLine("Navn,\t\t\tUdgave,\t\tGenre,\t\tMin,\tMaks,\tPrice,\tTilstand,\tAntal på lager,\tTil rep.\n");
 

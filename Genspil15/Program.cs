@@ -5,10 +5,22 @@ namespace Genspil15
     {
         static void Main(string[] args)
         {
+            string nuvDir = Directory.GetCurrentDirectory();
+            
+            string dir2 = Directory.GetParent(nuvDir).FullName;
+            
+            string dir1 = Directory.GetParent(dir2).FullName;
+           
+            string dir = Directory.GetParent(dir1).FullName;
+            
+            string dirMappe = Directory.GetParent(dir1).FullName;
+            
+
             string fileName = "LagerListe.txt";
-			List<Game> games = Filehandler.ReadGamesFromFile(fileName); //Laver en liste "games" af Game objecter
+            string filePath = Path.Combine(dirMappe, fileName);
+			List<Game> games = Filehandler.ReadGamesFromFile(filePath); //Laver en liste "games" af Game objecter
 			
-            MainMenu menu = new MainMenu(fileName, games);
+            MainMenu menu = new MainMenu(filePath, games, dirMappe);
 
             bool showMenu = true;
             while (showMenu)
