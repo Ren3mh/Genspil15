@@ -4,6 +4,7 @@ Ticket to Ride/Berlin/Strategi/2/4/8/140/TilRep/1/False/
 Ticket to Ride/Europe - Engelsk/Strategi/2/4/8/285/LettereRidset/0/False/ 
 Ticket to Ride/Europe - Dansk/Strategi/2/4/8/285/GodStand/2/False/ 
 Ticket to Ride/First journey/Strategi/2/4/6/200/GodStand/0/True/Mejse Johansen
-Ticket to Ride/Europe 1912/Strategi/2/4/8/150/GodStand/0/False/ 
+Ticket to Ride/Europe 1912/Strategi/2/4/8/150/GodStand/1/False/ 
 Ticket to Ride/New York/Strategi/2/4/8/140/KanMåskeReddes/0/False/ 
 Ticket to Ride/Ghost Train/Strategi/2/4/8/179,95/MåskePåVej/0/False/ 
+ukendt/ukendt/Ukendt/0/0/0/0/HeltNy/0/False/ 

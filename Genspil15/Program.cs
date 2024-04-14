@@ -3,9 +3,9 @@ namespace Genspil15
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-			Console.SetWindowSize(130, 40);
+			Console.SetWindowSize(140, 40);
 			string nuvDir = Directory.GetCurrentDirectory();
             
             string dir2 = Directory.GetParent(nuvDir).FullName;

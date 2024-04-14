@@ -57,6 +57,8 @@ namespace Genspil15
                     {
 
                     Game.CreateGame();//Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
+						if (Game.GameName != "Ukendt")
+						{ break; }
                     Games.Add(Game); //Tilføjer det nyoprettede game til games listen
                     Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
                     cont = Console.ReadLine();
@@ -75,7 +77,7 @@ namespace Genspil15
                         SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
 
                         Console.WriteLine("Liste over søgning");
-                        Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------");
+                        Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------\n");
 						Console.SetCursorPosition(4, Console.CursorTop);
 						Console.Write($"Navn,");
 						Console.SetCursorPosition(20, Console.CursorTop);
@@ -198,7 +200,7 @@ namespace Genspil15
                         String FileNameStatus = Path.Combine(DirMappe + $"\\Lagerliste{currentTime.ToShortDateString()}.txt");
                         
                         Console.WriteLine("Liste over varer som er på lager");
-                        Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------");
+                        Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------\n");
 						Console.SetCursorPosition(0, Console.CursorTop);
 						Console.Write($"Navn,");
 						Console.SetCursorPosition(20, Console.CursorTop);

@@ -81,6 +81,7 @@ public enum Condition
             Console.WriteLine("Hvis y, så får du muligheden for at tilføje spillet.");
             string SearchedForGame = Console.ReadLine();
             if (SearchedForGame == "y")
+            {
                 Console.WriteLine("Hvad er navnet?");
                 GameName = Console.ReadLine();
 
@@ -118,8 +119,8 @@ public enum Condition
                     if (yayornay == "y")
                     {
                         Reserved = true;
-                    Console.WriteLine("Hvilket navn skal reservationen stå under?");
-                    Waitlist = Console.ReadLine();
+                        Console.WriteLine("Hvilket navn skal reservationen stå under?");
+                        Waitlist = Console.ReadLine();
                     }
                     else
                     {
@@ -127,16 +128,16 @@ public enum Condition
                         Waitlist = " ";
                     }
                 }
-                else 
-                    Reserved = false;
-			        Waitlist = " ";
+
+                Reserved = false;
+                Waitlist = " ";
 
 
-			Console.WriteLine("Du har oprettet følgende spil:");
+                Console.WriteLine("Du har oprettet følgende spil:");
                 Console.WriteLine(MakeTitle());
+            }   
                 return MakeTitle();
             
-
         }
 
         public string MakeTitle()
