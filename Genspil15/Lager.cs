@@ -184,6 +184,25 @@ namespace Genspil15
 			}
 			return SearchList;
 		}
+		public static List<Game> OnStorageItems(List<Game> games)
+		{
+			int a = 0;
+
+			List<Game> StorageList = new List<Game>();
+			while (a == 0)
+			{
+				StorageList = games.Where(Game => Game.QuantityOfGame >= 1).ToList();
+				StorageList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
+				a = StorageList.Count;
+				if (a == 0)
+				{
+					Console.WriteLine("I har intet på Lager, anskaf jer nogle varer først");
+				}
+				else
+					return StorageList;
+			}
+			return StorageList;
+		}
 
 	}
 }
