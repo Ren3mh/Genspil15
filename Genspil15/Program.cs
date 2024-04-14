@@ -13,7 +13,7 @@ namespace Genspil15
            
             string dir = Directory.GetParent(dir1).FullName;
             
-            string dirMappe = Directory.GetParent(dir).FullName;
+            string dirMappe = Directory.GetParent(dir1).FullName;
             
 
             string fileName = "LagerListe.txt";
