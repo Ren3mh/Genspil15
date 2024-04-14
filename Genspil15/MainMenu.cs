@@ -79,7 +79,24 @@ namespace Genspil15
 
                    
                 case "3":
-                    Console.WriteLine("Denne funktion er endnu ikke implementeret");
+                    var cont3 = "y";
+                    while (cont3 == "y")
+                    {
+                        List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
+                        //List<Game> SearchList = Lager.Search(Games);
+                        Games.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
+
+                        Console.WriteLine("Liste over Lager");
+                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                        Console.WriteLine("Navn,\t\t\tUdgave,\t\tGenre,\t\tMin,\tMaks,\tPrice,\tTilstand,\tAntal på lager,\tTil rep.\n");
+
+                        foreach (Game game in Games)
+                        {
+                            Console.WriteLine($"{game.GameName}, \t{game.GameEdition}, \t{game.Genre}, \t{game.NumberOfPlayersMin}, \t{game.NumberOfPlayersMax}, \t{game.Price}, \t{game.Condition}, \t{game.QuantityOfGame}, \t\t{game.BeingRepaired}");
+                        }
+                        Console.WriteLine("\nVil du søge efter endnu et spil? y eller n fulgt af Enter...");
+                        cont2 = Console.ReadLine();
+                    }
                     return true;
                 case "4":
 
