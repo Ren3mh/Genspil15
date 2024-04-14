@@ -60,11 +60,11 @@ namespace Genspil15
                     Games.Add(Game); //Tilføjer det nyoprettede game til games listen
                     Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
                     cont = Console.ReadLine();
-                        // for at undgå at miste data, så gemmer vi tilføjelserne efter hver.
-                        Filehandler.WriteGamesToFile(Games, FileName);
                         Console.Clear();
                     }
-                        return true;
+					// for at undgå at miste data, så gemmer vi tilføjelserne efter man er færdig med at tilføje.
+					Filehandler.WriteGamesToFile(Games, FileName);
+					return true;
 
                 case "2":
                     string cont2 = "y";
@@ -75,14 +75,14 @@ namespace Genspil15
                         SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
 
                         Console.WriteLine("Liste over søgning");
-                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                        Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------");
 						Console.SetCursorPosition(4, Console.CursorTop);
 						Console.Write($"Navn,");
 						Console.SetCursorPosition(20, Console.CursorTop);
 						Console.Write($"Udgave,");
-						Console.SetCursorPosition(35, Console.CursorTop);
+						Console.SetCursorPosition(38, Console.CursorTop);
 						Console.Write($"Genre,");
-						Console.SetCursorPosition(47, Console.CursorTop);
+						Console.SetCursorPosition(50, Console.CursorTop);
 						Console.Write($"Min,");
 						Console.SetCursorPosition(58, Console.CursorTop);
 						Console.Write($"Maks,");
@@ -93,7 +93,7 @@ namespace Genspil15
 						Console.SetCursorPosition(93, Console.CursorTop);
 						Console.Write($"Antal på lager,");
 						Console.SetCursorPosition(108, Console.CursorTop);
-						Console.WriteLine($"Reserveret");
+						Console.WriteLine($"Reserveret + navn");
 
 						int i = 1;
                         foreach (Game game in SearchList)
@@ -103,9 +103,9 @@ namespace Genspil15
                             Console.Write($"{game.GameName},");
 							Console.SetCursorPosition(20, Console.CursorTop);
 							Console.Write($"{game.GameEdition},");
-							Console.SetCursorPosition(35, Console.CursorTop);
+							Console.SetCursorPosition(38, Console.CursorTop);
 							Console.Write($"{game.Genre},");
-							Console.SetCursorPosition(47, Console.CursorTop);
+							Console.SetCursorPosition(50, Console.CursorTop);
 							Console.Write($"{game.NumberOfPlayersMin},");
 							Console.SetCursorPosition(58, Console.CursorTop);
 							Console.Write($"{game.NumberOfPlayersMax},");
@@ -116,10 +116,10 @@ namespace Genspil15
 							Console.SetCursorPosition(93, Console.CursorTop);
 							Console.Write($"{game.QuantityOfGame},");
 							Console.SetCursorPosition(108, Console.CursorTop);
-							Console.WriteLine($"{game.BeingRepaired}");
+							Console.WriteLine($"{game.Reserved}, {game.Waitlist}");
                             i++;
                         }
-                        Console.WriteLine("\nVil du søge efter endnu et spil? 'y'/'n' \nEller 's': sælge et spil, fulgt af Enter...");
+                        Console.WriteLine("\nVil du søge efter endnu et spil? 'y'/'n' \nSægle et spil ? 's' \nTilføje kvantitet til eksisterende data? 't' efterfulgt af Enter...");
                         cont2 = Console.ReadLine();
                         if (cont2 == "s")
                         {
@@ -133,7 +133,7 @@ namespace Genspil15
 
                                 Games[indexResultat].QuantityOfGame = Games[indexResultat].QuantityOfGame - 1;
 
-                                Console.WriteLine("Antallet af valgte spil er nu: {0}", Games[indexResultat].QuantityOfGame);
+                                Console.WriteLine("Antallet af det valgte spil er nu: {0}", Games[indexResultat].QuantityOfGame);
                                 Filehandler.WriteGamesToFile(Games, FileName);
                                 Console.WriteLine("Gemmer listen på computeren og returnerer til menuen");
                                 Console.WriteLine("3");
@@ -152,8 +152,38 @@ namespace Genspil15
 
                             }
                         }
+                        if (cont2 == "t")
+						{
+							Console.WriteLine("Skriv nummeret på det spil du vil tilføje 1 stk. til og tryk enter...");
+							int indexValgInt = int.Parse(Console.ReadLine()) - 1;
+							if (indexValgInt >= 0)
+							{
+								var spilValgtVar = SearchList[indexValgInt]; //
 
-                    }
+								int indexResultat = Games.IndexOf(spilValgtVar);
+
+								Games[indexResultat].QuantityOfGame = Games[indexResultat].QuantityOfGame + 1;
+
+								Console.WriteLine("Antallet af det valgte spil er nu: {0}", Games[indexResultat].QuantityOfGame);
+								Filehandler.WriteGamesToFile(Games, FileName);
+								Console.WriteLine("Gemmer listen på computeren og returnerer til menuen");
+								Console.WriteLine("3");
+								Thread.Sleep(1000); // 3000 milliseconds = 3 seconds
+								Console.WriteLine("2");
+								Thread.Sleep(1000); // 3000 milliseconds = 3 seconds
+								Console.WriteLine("1");
+								Thread.Sleep(1000); // 3000 milliseconds = 3 seconds
+
+								//Games.FindIndex(SearchList[indexValgInt]);
+								//1: sæt valgte game fra search list til en VAR
+								//2: søg og find VAR på games listen
+								//3: reducer Quantity med -1
+								//4: gem ændret games liste }
+
+
+							}
+						}
+					}
                         return true;
 
 
@@ -168,14 +198,14 @@ namespace Genspil15
                         String FileNameStatus = Path.Combine(DirMappe + $"\\Lagerliste{currentTime.ToShortDateString()}.txt");
                         
                         Console.WriteLine("Liste over varer som er på lager");
-                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                        Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------");
 						Console.SetCursorPosition(0, Console.CursorTop);
 						Console.Write($"Navn,");
 						Console.SetCursorPosition(20, Console.CursorTop);
 						Console.Write($"Udgave,");
-						Console.SetCursorPosition(35, Console.CursorTop);
+						Console.SetCursorPosition(38, Console.CursorTop);
 						Console.Write($"Genre,");
-						Console.SetCursorPosition(47, Console.CursorTop);
+						Console.SetCursorPosition(50, Console.CursorTop);
 						Console.Write($"Min,");
 						Console.SetCursorPosition(58, Console.CursorTop);
 						Console.Write($"Maks,");
@@ -186,7 +216,7 @@ namespace Genspil15
 						Console.SetCursorPosition(93, Console.CursorTop);
 						Console.Write($"Antal på lager,");
 						Console.SetCursorPosition(108, Console.CursorTop);
-						Console.WriteLine($"Reserveret");
+						Console.WriteLine($"Reserveret + navn");
 
 						foreach (Game game in StorageList)
                         {
@@ -207,7 +237,7 @@ namespace Genspil15
 							Console.SetCursorPosition(93, Console.CursorTop);
 							Console.Write($"{game.QuantityOfGame},");
 							Console.SetCursorPosition(108, Console.CursorTop);
-							Console.WriteLine($"{game.BeingRepaired}");
+							Console.WriteLine($"{game.Reserved}. {game.Waitlist}");
 						}
 						Console.WriteLine("\nVil du gemme listen til udprint? y eller n fulgt af Enter...");
 						string contSave = Console.ReadLine();

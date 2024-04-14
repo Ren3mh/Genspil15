@@ -21,7 +21,8 @@ public enum Condition
 		GodStand = 2,
 		LettereRidset = 3,
 		TilRep = 4,
-		KanMåskeReddes = 5
+		KanMåskeReddes = 5,
+        MåskePåVej = 6
 	};
 
     public enum Genre
@@ -50,8 +51,8 @@ public enum Condition
         public double Price { get; set; } = 0;
         public Condition Condition { get; set; } = Condition.HeltNy;
         public int QuantityOfGame { get; set; } = 0;
-        public string[] Waitlist { get; set; } = new string[0];
-        public string[] Reserved { get; set; } = new string[0];
+        public string Waitlist { get; set; } = " ";
+        public bool Reserved { get; set; } = false;
         public bool BeingRepaired { get; set; } = false;
 
         public Game() 
@@ -59,7 +60,7 @@ public enum Condition
             //Tom Constructor
         }
 
-        public Game(string gameName, string gameEdition, Genre genre, int numberOfPlayersMin, int numberOfPlayersMax, int ageMin, double price, Condition condition, int quantityOfGame, bool beingRepaired)
+        public Game(string gameName, string gameEdition, Genre genre, int numberOfPlayersMin, int numberOfPlayersMax, int ageMin, double price, Condition condition, int quantityOfGame, bool reserved, string waitlist)
         {
             GameName = gameName;
             GameEdition = gameEdition;
@@ -70,12 +71,16 @@ public enum Condition
             Price = price;
             Condition = condition;
             QuantityOfGame = quantityOfGame;
-            BeingRepaired = beingRepaired;
+            Reserved = reserved;
+            Waitlist = waitlist;
         }
 
         public string CreateGame()
         {
-            
+            Console.WriteLine("Har du lavet en søgning om spillet allerede lægger i dataen og er sikker på at den ikke eksistere? y eller n");
+            Console.WriteLine("Hvis y, så får du muligheden for at tilføje spillet.");
+            string SearchedForGame = Console.ReadLine();
+            if (SearchedForGame == "y")
                 Console.WriteLine("Hvad er navnet?");
                 GameName = Console.ReadLine();
 
@@ -83,7 +88,7 @@ public enum Condition
                 GameEdition = Console.ReadLine();
 
                 Console.WriteLine("Hvad er genren?");
-			    Console.WriteLine("0. Ukendt\n1. Strategi\n2.Party\n3.Deckbuilding\n4. Cooperative\n5. TilePlacement\n6. Deduction\n7. WorkerPlacement\n8. Adventure\n9. Abstract\n10. WordPuzzle");
+                Console.WriteLine("0. Ukendt\n1. Strategi\n2.Party\n3.Deckbuilding\n4. Cooperative\n5. TilePlacement\n6. Deduction\n7. WorkerPlacement\n8. Adventure\n9. Abstract\n10. WordPuzzle");
 
                 Genre = (Genre)int.Parse(Console.ReadLine());
 
@@ -99,39 +104,44 @@ public enum Condition
                 Console.WriteLine("Hvad er prisen?");
                 Price = double.Parse(Console.ReadLine());
 
-                Console.WriteLine("Hvad er tilstanden på spillet?\n1. HeltNy / IkkeÅbnet\n2. OkStand / GodStand\n3. Lettere ridset / Skadet på hjørnet ellers fin stand / Lidt slidt / Lidt skrammet\n4. Til rep\n5. Kan måske reddes");
+                Console.WriteLine("Hvad er tilstanden på spillet?\n1. HeltNy / IkkeÅbnet\n2. OkStand / GodStand\n3. Lettere ridset / Skadet på hjørnet ellers fin stand / Lidt slidt / Lidt skrammet\n4. Til rep\n5. Kan måske reddes\n6. På vej/måske på vej");
                 Condition = (Condition)int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Hvor mange spil er der som dette? 0, 1 eller flere? skriv et tal:");
                 QuantityOfGame = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Er den til reperation? y eller n");
-                string yayornay = Console.ReadLine();
-
-                if (yayornay == "y")
+                if (QuantityOfGame == 0)
                 {
-                    Console.WriteLine("Du har sat spillet som værende til reperation...");
-                    BeingRepaired = true;
+                    Console.WriteLine("Skal der laves en reservation på produktet? y eller n");
+                    string yayornay = Console.ReadLine();
+
+                    if (yayornay == "y")
+                    {
+                        Reserved = true;
+                    Console.WriteLine("Hvilket navn skal reservationen stå under?");
+                    Waitlist = Console.ReadLine();
+                    }
+                    else
+                    {
+                        Reserved = false;
+                        Waitlist = " ";
+                    }
                 }
-                else
-                {
-                    BeingRepaired = false;
-                }
+                else 
+                    Reserved = false;
+			        Waitlist = " ";
 
 
-                Console.WriteLine("Du har oprettet følgende spil:");
+			Console.WriteLine("Du har oprettet følgende spil:");
                 Console.WriteLine(MakeTitle());
                 return MakeTitle();
-
-            
             
 
-                
         }
 
         public string MakeTitle()
         {
-            return GameName + "," + GameEdition + "," + Genre + "," + NumberOfPlayersMin + "," + NumberOfPlayersMax + "," + AgeMin + "," + Price + "," + Condition + "," + QuantityOfGame + "," + BeingRepaired;
+            return GameName + "," + GameEdition + "," + Genre + "," + NumberOfPlayersMin + "," + NumberOfPlayersMax + "," + AgeMin + "," + Price + "," + Condition + "," + QuantityOfGame + "," + Reserved;
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Genspil15
 
                 while (line != null)
                 {
-                    string[] parts = line.Split(',');
+                    string[] parts = line.Split('/');
                     string gameName = parts[0];
                     string gameEdition = parts[1];
                     Genre genre = Enum.Parse<Genre>(parts[2]);
@@ -42,10 +42,10 @@ namespace Genspil15
                     double price = double.Parse(parts[6]);
                     Condition condition = Enum.Parse<Condition>(parts[7]);
                     int quantityOfGames = int.Parse(parts[8]);
-                    bool beingRepaired = bool.Parse(parts[9]);
+                    bool reserved = bool.Parse(parts[9]);
+                    string waitlist = parts[10];
 
-
-                    games.Add(new Game(gameName, gameEdition, genre, numberOfPlayersMin, numberOfPlayersMax, ageMin, price, (Condition)condition, quantityOfGames, beingRepaired));
+                    games.Add(new Game(gameName, gameEdition, genre, numberOfPlayersMin, numberOfPlayersMax, ageMin, price, (Condition)condition, quantityOfGames, reserved, waitlist));
                     line = sr.ReadLine();
                 }
             }
@@ -65,7 +65,7 @@ namespace Genspil15
                 {
                     foreach (var game in games)
                     {
-                        sw.WriteLine($"{game.GameName},{game.GameEdition},{game.Genre.ToString()},{game.NumberOfPlayersMin},{game.NumberOfPlayersMax},{game.AgeMin},{game.Price},{game.Condition},{game.QuantityOfGame},{game.BeingRepaired}");
+                        sw.WriteLine($"{game.GameName}/{game.GameEdition}/{game.Genre.ToString()}/{game.NumberOfPlayersMin}/{game.NumberOfPlayersMax}/{game.AgeMin}/{game.Price}/{game.Condition}/{game.QuantityOfGame}/{game.Reserved}/{game.Waitlist}");
                     }
                 }
             }

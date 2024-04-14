@@ -5,7 +5,8 @@ namespace Genspil15
     {
         static void Main(string[] args)
         {
-            string nuvDir = Directory.GetCurrentDirectory();
+			Console.SetWindowSize(130, 40);
+			string nuvDir = Directory.GetCurrentDirectory();
             
             string dir2 = Directory.GetParent(nuvDir).FullName;
             
