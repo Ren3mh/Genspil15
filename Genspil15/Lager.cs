@@ -41,7 +41,7 @@ namespace Genspil15
 					Console.WriteLine($"Hvilken tilstand skal spillet som minimum have?");
 					Console.WriteLine("1. HeltNy / IkkeÅbnet\n2. OkStand / GodStand\n3. Lettere ridset / Skadet på hjørnet ellers fin stand / Lidt slidt / Lidt skrammet\n4. Til rep\n5. Kan måske reddes");
 					int searchCondition = int.Parse(Console.ReadLine());
-					return SearchPrice(games, searchCondition);
+					return SearchCondition(games, searchCondition);
 
 				case "5":
 					Console.WriteLine($"Hvor mange skal minimum kunne spille?");
@@ -150,7 +150,7 @@ namespace Genspil15
 			List<Game> SearchList = new List<Game>();
 			while (a == 0)
 			{
-				SearchList = games.Where(Game => Game.NumberOfPlayersMin >= SearchInput && Game.NumberOfPlayersMax <= SearchInput).ToList();
+				SearchList = games.Where(Game => Game.NumberOfPlayersMin == SearchInput).ToList();
 				SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
 				a = SearchList.Count;
 				if (a == 0)

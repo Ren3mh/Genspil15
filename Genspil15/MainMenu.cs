@@ -76,7 +76,7 @@ namespace Genspil15
 
                         Console.WriteLine("Liste over søgning");
                         Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-						Console.SetCursorPosition(0, Console.CursorTop);
+						Console.SetCursorPosition(4, Console.CursorTop);
 						Console.Write($"Navn,");
 						Console.SetCursorPosition(20, Console.CursorTop);
 						Console.Write($"Udgave,");
@@ -98,8 +98,8 @@ namespace Genspil15
 						int i = 1;
                         foreach (Game game in SearchList)
                         {
-                            Console.Write(SearchList.IndexOf(game)+1);
-                            Console.SetCursorPosition(2, Console.CursorTop);
+                            Console.Write(SearchList.IndexOf(game)+1 + ".");
+                            Console.SetCursorPosition(4, Console.CursorTop);
                             Console.Write($"{game.GameName},");
 							Console.SetCursorPosition(20, Console.CursorTop);
 							Console.Write($"{game.GameEdition},");
