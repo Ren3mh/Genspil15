@@ -126,8 +126,25 @@ namespace Genspil15
                             Console.WriteLine($"{game.GameName}, \t{game.GameEdition}, \t{game.Genre}, \t{game.NumberOfPlayersMin}, \t{game.NumberOfPlayersMax}, \t{game.Price}, \t{game.Condition}, \t{game.QuantityOfGame}, \t\t{game.BeingRepaired}");
                         }
                         Console.WriteLine("\nVil du søge efter endnu et spil? y eller n fulgt af Enter...");
-                        cont2 = Console.ReadLine();
-                    }
+						string contSave = Console.ReadLine();
+						if (contSave == "y")
+						{
+							Filehandler.WriteGamesToFile(StorageList, FileNameStatus);
+							Console.WriteLine("Gemmer listen på computeren og returnerer til menuen");
+							Console.WriteLine("3");
+							Thread.Sleep(1000); // 3000 milliseconds = 3 seconds
+							Console.WriteLine("2");
+							Thread.Sleep(1000); // 3000 milliseconds = 3 seconds
+							Console.WriteLine("1");
+							Thread.Sleep(1000); // 3000 milliseconds = 3 seconds
+
+							cont3 = "n";
+						}
+						else if (contSave == "n")
+						{
+							cont3 = contSave;
+						}
+					}
                     return true;
 
                 
