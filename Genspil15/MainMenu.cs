@@ -93,7 +93,13 @@ namespace Genspil15
 
                                 Console.WriteLine("Antallet af valgte spil er nu: {0}", Games[indexResultat].QuantityOfGame);
                                 Filehandler.WriteGamesToFile(Games, FileName);
-                                Console.ReadLine();
+                                Console.WriteLine("Gemmer listen på computeren og returnerer til menuen");
+                                Console.WriteLine("3");
+                                Thread.Sleep(1000); // 3000 milliseconds = 3 seconds
+                                Console.WriteLine("2");
+                                Thread.Sleep(1000); // 3000 milliseconds = 3 seconds
+                                Console.WriteLine("1");
+                                Thread.Sleep(1000); // 3000 milliseconds = 3 seconds
 
                                 //Games.FindIndex(SearchList[indexValgInt]);
                                 //1: sæt valgte game fra search list til en VAR
