@@ -125,7 +125,7 @@ namespace Genspil15
                         {
                             Console.WriteLine($"{game.GameName}, \t{game.GameEdition}, \t{game.Genre}, \t{game.NumberOfPlayersMin}, \t{game.NumberOfPlayersMax}, \t{game.Price}, \t{game.Condition}, \t{game.QuantityOfGame}, \t\t{game.BeingRepaired}");
                         }
-                        Console.WriteLine("\nVil du søge efter endnu et spil? y eller n fulgt af Enter...");
+						Console.WriteLine("\nVil du gemme listen til udprint? y eller n fulgt af Enter...");
 						string contSave = Console.ReadLine();
 						if (contSave == "y")
 						{
