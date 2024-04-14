@@ -57,15 +57,21 @@ namespace Genspil15
                     {
 
                     Game.CreateGame();//Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
-						if (Game.GameName != "Ukendt")
-						{ break; }
-                    Games.Add(Game); //Tilføjer det nyoprettede game til games listen
-                    Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
-                    cont = Console.ReadLine();
-                        Console.Clear();
+						if (Game.GameName != "ukendt")
+						{
+							Games.Add(Game); //Tilføjer det nyoprettede game til games listen
+							Console.WriteLine("Vil du tilføje endnu et spil? y eller n fulgt af Enter...");
+							cont = Console.ReadLine();
+							Filehandler.WriteGamesToFile(Games, FileName);
+								Console.Clear();
+						}
+						else
+						{
+							cont = "n";
+						}
+						
                     }
 					// for at undgå at miste data, så gemmer vi tilføjelserne efter man er færdig med at tilføje.
-					Filehandler.WriteGamesToFile(Games, FileName);
 					return true;
 
                 case "2":

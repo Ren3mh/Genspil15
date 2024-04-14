@@ -31,6 +31,7 @@ public enum Condition
         Strategi,
 		Party,
 		DeckBuilding,
+        Quiz,
 		Cooperative,
 		TilePlacement,
 		Deduction,
@@ -89,7 +90,7 @@ public enum Condition
                 GameEdition = Console.ReadLine();
 
                 Console.WriteLine("Hvad er genren?");
-                Console.WriteLine("0. Ukendt\n1. Strategi\n2.Party\n3.Deckbuilding\n4. Cooperative\n5. TilePlacement\n6. Deduction\n7. WorkerPlacement\n8. Adventure\n9. Abstract\n10. WordPuzzle");
+                Console.WriteLine("0. Ukendt\n1. Strategi\n2.Party\n3.Deckbuilding\n4. Quiz\n5. Cooperative\n6. TilePlacement\n7. Deduction\n8. WorkerPlacement\n9. Adventure\n10. Abstract\n11. WordPuzzle");
 
                 Genre = (Genre)int.Parse(Console.ReadLine());
 
@@ -129,8 +130,6 @@ public enum Condition
                     }
                 }
 
-                Reserved = false;
-                Waitlist = " ";
 
 
                 Console.WriteLine("Du har oprettet følgende spil:");
@@ -142,7 +141,7 @@ public enum Condition
 
         public string MakeTitle()
         {
-            return GameName + "," + GameEdition + "," + Genre + "," + NumberOfPlayersMin + "," + NumberOfPlayersMax + "," + AgeMin + "," + Price + "," + Condition + "," + QuantityOfGame + "," + Reserved;
+            return GameName + "," + GameEdition + "," + Genre + "," + NumberOfPlayersMin + "," + NumberOfPlayersMax + "," + AgeMin + "," + Price + "," + Condition + "," + QuantityOfGame + "," + Reserved + "," + Waitlist;
         }
     }
 }

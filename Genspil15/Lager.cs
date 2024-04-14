@@ -28,7 +28,7 @@ namespace Genspil15
 
 				case "2":
 					Console.WriteLine($"Hvilken genre søger du efter?");
-					Console.WriteLine("0. Ukendt\n1. Strategi\n2.Party\n3.Deckbuilding\n4. Cooperative\n5. TilePlacement\n6. Deduction\n7. WorkerPlacement\n8. Adventure\n9. Abstract\n10. WordPuzzle");
+					Console.WriteLine("0. Ukendt\n1. Strategi\n2.Party\n3.Deckbuilding\n4. Quiz\n5. Cooperative\n6. TilePlacement\n7. Deduction\n8. WorkerPlacement\n9. Adventure\n10. Abstract\n11. WordPuzzle");
 					int searchGenre = int.Parse(Console.ReadLine());
 					return SearchGenre(games, searchGenre);
 
