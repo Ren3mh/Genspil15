@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Genspil15
@@ -55,29 +57,57 @@ namespace Genspil15
                         Console.Clear();
                     }
                         return true;
+
                 case "2":
-                    var cont2 = "y";
+                    string cont2 = "y";
                     while (cont2 == "y")
                     {
                         List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
                         List<Game> SearchList = Lager.Search(Games);
-						SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
+                        SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
 
-						Console.WriteLine("Liste over søgning");
+                        Console.WriteLine("Liste over søgning");
                         Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
                         Console.WriteLine("Navn,\t\t\tUdgave,\t\tGenre,\t\tMin,\tMaks,\tPrice,\tTilstand,\tAntal på lager,\tTil rep.\n");
-                        
-						foreach (Game game in SearchList)
+
+                        int i = 0;
+                        foreach (Game game in SearchList)
                         {
-                            Console.WriteLine($"{game.GameName}, \t{game.GameEdition}, \t{game.Genre}, \t{game.NumberOfPlayersMin}, \t{game.NumberOfPlayersMax}, \t{game.Price}, \t{game.Condition}, \t{game.QuantityOfGame}, \t\t{game.BeingRepaired}");
+                            Console.WriteLine($"{i}-{game.GameName}, \t{game.GameEdition}, \t{game.Genre}, \t{game.NumberOfPlayersMin}, \t{game.NumberOfPlayersMax}, \t{game.Price}, \t{game.Condition}, \t{game.QuantityOfGame}, \t\t{game.BeingRepaired}");
+                            i++;
                         }
-                        Console.WriteLine("\nVil du søge efter endnu et spil? y eller n fulgt af Enter...");
+                        Console.WriteLine("\nVil du søge efter endnu et spil? 'y'/'n' \nEller 's': sælge et spil, fulgt af Enter...");
                         cont2 = Console.ReadLine();
+                        if (cont2 == "s")
+                        {
+                            Console.WriteLine("Skriv nummeret på det spil du vil sælge og tryk enter...");
+                            int indexValgInt = int.Parse(Console.ReadLine());
+                            if (indexValgInt >= 0)
+                            {
+                                var spilValgtVar = SearchList[indexValgInt]; //
+
+                                int indexResultat = Games.IndexOf(spilValgtVar);
+
+                                Games[indexResultat].QuantityOfGame = Games[indexResultat].QuantityOfGame - 1;
+
+                                Console.WriteLine("Antallet af valgte spil er nu: {0}", Games[indexResultat].QuantityOfGame);
+                                Filehandler.WriteGamesToFile(Games, FileName);
+                                Console.ReadLine();
+
+                                //Games.FindIndex(SearchList[indexValgInt]);
+                                //1: sæt valgte game fra search list til en VAR
+                                //2: søg og find VAR på games listen
+                                //3: reducer Quantity med -1
+                                //4: gem ændret games liste }
+
+
+                            }
+                        }
+
                     }
-                    return true;
+                        return true;
 
 
-                   
                 case "3":
                     var cont3 = "y";
                     while (cont3 == "y")
@@ -95,10 +125,32 @@ namespace Genspil15
                             Console.WriteLine($"{game.GameName}, \t{game.GameEdition}, \t{game.Genre}, \t{game.NumberOfPlayersMin}, \t{game.NumberOfPlayersMax}, \t{game.Price}, \t{game.Condition}, \t{game.QuantityOfGame}, \t\t{game.BeingRepaired}");
                         }
                         Console.WriteLine("\nVil du søge efter endnu et spil? y eller n fulgt af Enter...");
-                        cont2 = Console.ReadLine();
+                        cont3 = Console.ReadLine();
                     }
                     return true;
+
                 case "4":
+                    var cont4 = "y";
+                    while (cont4 == "y")
+                    {
+                        List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
+                        //List<Game> SearchList = Lager.Search(Games);
+                        Games.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
+
+                        Console.WriteLine("Liste over Lager");
+                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                        Console.WriteLine("Navn,\t\t\tUdgave,\t\tGenre,\t\tMin,\tMaks,\tPrice,\tTilstand,\tAntal på lager,\tTil rep.\n");
+
+                        foreach (Game game in Games)
+                        {
+                            Console.WriteLine($"{game.GameName}, \t{game.GameEdition}, \t{game.Genre}, \t{game.NumberOfPlayersMin}, \t{game.NumberOfPlayersMax}, \t{game.Price}, \t{game.Condition}, \t{game.QuantityOfGame}, \t\t{game.BeingRepaired}");
+                        }
+                        Console.WriteLine("\nVil du vise lager igen? y eller n fulgt af Enter...");
+                        cont4 = Console.ReadLine();
+                    }
+                    return true;
+
+                case "5":
 
                     return false;
                 default:
