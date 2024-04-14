@@ -71,7 +71,7 @@ namespace Genspil15
                         Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
                         Console.WriteLine("Navn,\t\t\tUdgave,\t\tGenre,\t\tMin,\tMaks,\tPrice,\tTilstand,\tAntal på lager,\tTil rep.\n");
 
-                        int i = 0;
+                        int i = 1;
                         foreach (Game game in SearchList)
                         {
                             Console.WriteLine($"{i}-{game.GameName}, \t{game.GameEdition}, \t{game.Genre}, \t{game.NumberOfPlayersMin}, \t{game.NumberOfPlayersMax}, \t{game.Price}, \t{game.Condition}, \t{game.QuantityOfGame}, \t\t{game.BeingRepaired}");
@@ -82,7 +82,7 @@ namespace Genspil15
                         if (cont2 == "s")
                         {
                             Console.WriteLine("Skriv nummeret på det spil du vil sælge og tryk enter...");
-                            int indexValgInt = int.Parse(Console.ReadLine());
+                            int indexValgInt = int.Parse(Console.ReadLine()) - 1;
                             if (indexValgInt >= 0)
                             {
                                 var spilValgtVar = SearchList[indexValgInt]; //
