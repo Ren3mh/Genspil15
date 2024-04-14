@@ -76,12 +76,46 @@ namespace Genspil15
 
                         Console.WriteLine("Liste over søgning");
                         Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                        Console.WriteLine("Navn,\t\t\tUdgave,\t\tGenre,\t\tMin,\tMaks,\tPrice,\tTilstand,\tAntal på lager,\tTil rep.\n");
+						Console.SetCursorPosition(0, Console.CursorTop);
+						Console.Write($"Navn,");
+						Console.SetCursorPosition(20, Console.CursorTop);
+						Console.Write($"Udgave,");
+						Console.SetCursorPosition(35, Console.CursorTop);
+						Console.Write($"Genre,");
+						Console.SetCursorPosition(47, Console.CursorTop);
+						Console.Write($"Min,");
+						Console.SetCursorPosition(58, Console.CursorTop);
+						Console.Write($"Maks,");
+						Console.SetCursorPosition(68, Console.CursorTop);
+						Console.Write($"Pris,");
+						Console.SetCursorPosition(78, Console.CursorTop);
+						Console.Write($"Tilstand,");
+						Console.SetCursorPosition(93, Console.CursorTop);
+						Console.Write($"Antal på lager,");
+						Console.SetCursorPosition(108, Console.CursorTop);
+						Console.WriteLine($"Reserveret");
 
-                        int i = 1;
+						int i = 1;
                         foreach (Game game in SearchList)
                         {
-                            Console.WriteLine($"{i}-{game.GameName}, \t{game.GameEdition}, \t{game.Genre}, \t{game.NumberOfPlayersMin}, \t{game.NumberOfPlayersMax}, \t{game.Price}, \t{game.Condition}, \t{game.QuantityOfGame}, \t\t{game.BeingRepaired}");
+							Console.SetCursorPosition(0, Console.CursorTop);
+							Console.Write($"{game.GameName},");
+							Console.SetCursorPosition(20, Console.CursorTop);
+							Console.Write($"{game.GameEdition},");
+							Console.SetCursorPosition(35, Console.CursorTop);
+							Console.Write($"{game.Genre},");
+							Console.SetCursorPosition(47, Console.CursorTop);
+							Console.Write($"{game.NumberOfPlayersMin},");
+							Console.SetCursorPosition(58, Console.CursorTop);
+							Console.Write($"{game.NumberOfPlayersMax},");
+							Console.SetCursorPosition(68, Console.CursorTop);
+							Console.Write($"{game.Price},");
+							Console.SetCursorPosition(78, Console.CursorTop);
+							Console.Write($"{game.Condition},");
+							Console.SetCursorPosition(93, Console.CursorTop);
+							Console.Write($"{game.QuantityOfGame},");
+							Console.SetCursorPosition(108, Console.CursorTop);
+							Console.WriteLine($"{game.BeingRepaired}");
                             i++;
                         }
                         Console.WriteLine("\nVil du søge efter endnu et spil? 'y'/'n' \nEller 's': sælge et spil, fulgt af Enter...");
@@ -128,17 +162,52 @@ namespace Genspil15
                     {
 						// List<Game> Games = Filehandler.ReadGamesFromFile("LagerListe.txt");
 						List<Game> StorageList = Lager.OnStorageItems(Games);
-                        DateTime currentTime= DateTime.Now;
+						StorageList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
+						DateTime currentTime = DateTime.Now;
                         String FileNameStatus = Path.Combine(DirMappe + $"\\Lagerliste{currentTime.ToShortDateString()}.txt");
                         
                         Console.WriteLine("Liste over varer som er på lager");
                         Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                        Console.WriteLine("Navn,\t\t\tUdgave,\t\tGenre,\t\tMin,\tMaks,\tPrice,\tTilstand,\tAntal på lager,\tTil rep.\n");
+						Console.SetCursorPosition(0, Console.CursorTop);
+						Console.Write($"Navn,");
+						Console.SetCursorPosition(20, Console.CursorTop);
+						Console.Write($"Udgave,");
+						Console.SetCursorPosition(35, Console.CursorTop);
+						Console.Write($"Genre,");
+						Console.SetCursorPosition(47, Console.CursorTop);
+						Console.Write($"Min,");
+						Console.SetCursorPosition(58, Console.CursorTop);
+						Console.Write($"Maks,");
+						Console.SetCursorPosition(68, Console.CursorTop);
+						Console.Write($"Pris,");
+						Console.SetCursorPosition(78, Console.CursorTop);
+						Console.Write($"Tilstand,");
+						Console.SetCursorPosition(93, Console.CursorTop);
+						Console.Write($"Antal på lager,");
+						Console.SetCursorPosition(108, Console.CursorTop);
+						Console.WriteLine($"Reserveret");
 
-                        foreach (Game game in StorageList)
+						foreach (Game game in StorageList)
                         {
-                            Console.WriteLine($"{game.GameName}, \t{game.GameEdition}, \t{game.Genre}, \t{game.NumberOfPlayersMin}, \t{game.NumberOfPlayersMax}, \t{game.Price}, \t{game.Condition}, \t{game.QuantityOfGame}, \t\t{game.BeingRepaired}");
-                        }
+							Console.SetCursorPosition(0, Console.CursorTop);
+							Console.Write($"{game.GameName},");
+							Console.SetCursorPosition(20, Console.CursorTop);
+							Console.Write($"{game.GameEdition},");
+							Console.SetCursorPosition(35, Console.CursorTop);
+							Console.Write($"{game.Genre},");
+							Console.SetCursorPosition(47, Console.CursorTop);
+							Console.Write($"{game.NumberOfPlayersMin},");
+							Console.SetCursorPosition(58, Console.CursorTop);
+							Console.Write($"{game.NumberOfPlayersMax},");
+							Console.SetCursorPosition(68, Console.CursorTop);
+							Console.Write($"{game.Price},");
+							Console.SetCursorPosition(78, Console.CursorTop);
+							Console.Write($"{game.Condition},");
+							Console.SetCursorPosition(93, Console.CursorTop);
+							Console.Write($"{game.QuantityOfGame},");
+							Console.SetCursorPosition(108, Console.CursorTop);
+							Console.WriteLine($"{game.BeingRepaired}");
+						}
 						Console.WriteLine("\nVil du gemme listen til udprint? y eller n fulgt af Enter...");
 						string contSave = Console.ReadLine();
 						if (contSave == "y")
