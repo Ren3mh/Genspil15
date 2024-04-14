@@ -98,8 +98,9 @@ namespace Genspil15
 						int i = 1;
                         foreach (Game game in SearchList)
                         {
-							Console.SetCursorPosition(0, Console.CursorTop);
-							Console.Write($"{game.GameName},");
+                            Console.Write(SearchList.IndexOf(game)+1);
+                            Console.SetCursorPosition(2, Console.CursorTop);
+                            Console.Write($"{game.GameName},");
 							Console.SetCursorPosition(20, Console.CursorTop);
 							Console.Write($"{game.GameEdition},");
 							Console.SetCursorPosition(35, Console.CursorTop);
