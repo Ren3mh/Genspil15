@@ -1,0 +1,8 @@
+Ticket to Ride/Berlin/Strategi/2/4/8/140/GodStand/3/False/ 
+Ticket to Ride/Berlin/Strategi/2/4/8/140/LettereRidset/1/False/ 
+Ticket to Ride/Berlin/Strategi/2/4/8/140/TilRep/1/False/ 
+Ticket to Ride/Europe - Dansk/Strategi/2/4/8/285/GodStand/2/False/ 
+Sequence/Original/Strategi/2/12/7/185/TilRep/2/False/ 
+Ticket to Ride/Europe 1912/Strategi/2/4/8/150/GodStand/1/False/ 
+Sequence/Junior/Strategi/2/4/3/149,95/LettereRidset/1/False/ 
+Sequence/Original/Strategi/2/12/7/185/GodStand/1/False/ 

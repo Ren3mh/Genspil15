@@ -88,7 +88,7 @@ namespace Genspil15
 			while (a == 0)
 			{
 				SearchList = games.Where(Game => (int)Game.Genre == SearchInput).ToList();
-				SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
+				SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) | x.GameEdition.CompareTo(y.GameEdition));
 				a = SearchList.Count;
 				if (a == 0)
 				{
@@ -151,7 +151,7 @@ namespace Genspil15
 			while (a == 0)
 			{
 				SearchList = games.Where(Game => Game.NumberOfPlayersMin == SearchInput).ToList();
-				SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) + x.GameEdition.CompareTo(y.GameEdition) + y.QuantityOfGame.CompareTo(x.QuantityOfGame));
+				SearchList.Sort((x, y) => x.GameName.CompareTo(y.GameName) | x.GameEdition.CompareTo(y.GameEdition));
 				a = SearchList.Count;
 				if (a == 0)
 				{

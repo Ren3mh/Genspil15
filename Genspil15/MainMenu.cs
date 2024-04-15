@@ -56,7 +56,7 @@ namespace Genspil15
                     while (cont == "y")
                     {
 
-                    Game.CreateGame();//Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
+						Game.CreateGame();//Kalder createGame metoden som bruges til at oprette et nyt spil i databasen
 						if (Game.GameName != "ukendt")
 						{
 							Games.Add(Game); //Tilføjer det nyoprettede game til games listen
